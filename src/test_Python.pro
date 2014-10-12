@@ -20,14 +20,14 @@ HEADERS  += testpython.h
 FORMS    += testpython.ui
 
 # PythonQt
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../PythonQt/lib/release/ -lPythonQt -lPythonQt_QtAll
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../PythonQt/lib/debug/ -lPythonQt -lPythonQt_QtAll
-else:unix: LIBS += -L$$PWD/../PythonQt/lib/ -lPythonQt -lPythonQt_QtAll
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../PythonQt/lib/release/ -lPythonQt -lPythonQt_QtAll
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../PythonQt/lib/debug/ -lPythonQt -lPythonQt_QtAll
+else:unix: LIBS += -L$$PWD/../../PythonQt/lib/ -lPythonQt -lPythonQt_QtAll
 
-DYLD_LIBRARY_PATH += $$PWD/../PythonQt/lib/
+DYLD_LIBRARY_PATH += $$PWD/../../PythonQt/lib/
 
-INCLUDEPATH += $$PWD/../PythonQt/src
-DEPENDPATH += $$PWD/../PythonQt/src
+INCLUDEPATH += $$PWD/../../PythonQt/src
+DEPENDPATH += $$PWD/../../PythonQt/src
 
 # Python 3
 INCLUDEPATH += /Library/Frameworks/Python.framework/Versions/3.4/Headers
