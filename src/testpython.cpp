@@ -7,7 +7,7 @@ TestPython::TestPython(QWidget *parent) :
     ui(new Ui::TestPython)
 {
     // Initialize Python
-    PythonQt::init(PythonQt::IgnoreSiteModule | PythonQt::RedirectStdOut);
+    PythonQt::init(PythonQt::RedirectStdOut);
     QObject::connect(PythonQt::self(), SIGNAL(pythonStdOut(QString)), this, SLOT(pythonStdOut(QString)));
     QObject::connect(PythonQt::self(), SIGNAL(pythonStdErr(QString)), this, SLOT(pythonStdOut(QString)));
 
@@ -33,16 +33,11 @@ void TestPython::executePythonScript()
     // Start Python Scripting
     ui->textBrowser->append("Python script started");
     PythonQtObjectPtr mainModule = PythonQt::self()->getMainModule();
-    mainModule.evalScript("import time;");
-    mainModule.evalScript("import sys;");
-    mainModule.evalScript("def ttime():\n  return time.ctime(time.time());\n");
-    mainModule.evalScript("def pyVersion():\n  return sys.version;\n");
-    QVariant out = mainModule.call("ttime");
-    ui->textBrowser->append(out.toString());
-    out = mainModule.call("pyVersion");
-    ui->textBrowser->append(out.toString());
-    mainModule.evalScript("print(ttime())\n");
-    mainModule.evalScript("print(pyVersion())\n");
+    mainModule.evalScript("import patacrep");
+    mainModule.evalScript("import sys");
+    mainModule.evalScript("print(sys.path);");
+    mainModule.evalScript("print(patacrep)");
+    mainModule.evalScript("type(patacrep)");
 }
 
 void TestPython::pythonStdOut(QString pythonStdOut)
