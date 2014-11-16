@@ -30,5 +30,5 @@ INCLUDEPATH += $$PWD/../../PythonQt/src
 DEPENDPATH += $$PWD/../../PythonQt/src
 
 # Python 3
-INCLUDEPATH += /Library/Frameworks/Python.framework/Versions/3.4/Headers
-LIBS += -L/Library/Frameworks/Python.framework/Versions/3.4/lib/python3.4/config-3.4m -ldl -framework CoreFoundation -lpython3.4m
+INCLUDEPATH += /usr/local/Cellar/python3/3.4.2_1/Frameworks/Python.framework/Versions/3.4/Headers
+LIBS += -L/usr/local/Cellar/python3/3.4.2_1/Frameworks/Python.framework/Versions/3.4/lib/python3.4/config-3.4m -ldl -framework CoreFoundation -lpython3.4m
